@@ -23,6 +23,17 @@ else:
     print('provide delay and amount of positions in this order')
     exit(-1)
 
+# block until '+' is pressed to start the script
+def on_press_start(key):
+    if key == KeyCode(char='+'):
+        listener.stop()
+
+
+with Listener(on_press=on_press_start) as listener:
+    print('Press \'+\' to start the script.')
+    listener.join()
+    print('Script started!')
+
 def mouse_positions_collector(x, y, button_clicked, pressed):
     global position_selection_counter, position_selection_amount, mouse_positions
     if button_clicked is Button.left and pressed is False:
