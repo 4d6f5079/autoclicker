@@ -84,13 +84,13 @@ class ClickMouse(threading.Thread):
     def run(self):
         while self.program_running:
             while self.running:
-                print('The current pointer position is {0}'.format(mouse.position))
                 #rnd_int = random.randint(0, 2)
                 #if rnd_int > 1:
                 #    mouse.position = self.get_random_mouse_position()
                 #else:
                 #    mouse.position = next(mouse_positions)
                 mouse.position = next(mouse_positions)
+                print('The current pointer position is {0}'.format(mouse.position))
                 mouse.click(self.button)
                 time.sleep(self.delay)
             time.sleep(0.1)
